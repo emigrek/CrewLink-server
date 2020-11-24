@@ -5,6 +5,7 @@ import Tracer from 'tracer';
 import morgan from 'morgan';
 
 const port = parseInt('5000');
+const host = '0.0.0.0';
 
 const logger = Tracer.colorConsole({
 	format: "{{timestamp}} <{{title}}> {{message}}"
@@ -85,5 +86,5 @@ io.on('connection', (socket: socketIO.Socket) => {
 
 })
 
-server.listen(port);
+server.listen(port, host);
 logger.info('Server listening on port %d', port);
